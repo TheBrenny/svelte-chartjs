@@ -1,12 +1,12 @@
 {
-  "name": "svelte-chartjs",
+  "name": "@thebrenny/svelte-chartjs",
   "type": "module",
   "version": "3.1.2",
-  "author": "Saurav Kanchan",
-  "homepage": "https://saurav.tech/mdbsvelte/?path=/story/charts--examples",
+  "author": "TheBrenny <iam@justbrenny.me>",
   "license": "MIT",
   "publishConfig": {
-    "directory": "package"
+    "directory": "package",
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [
     "svelte",
@@ -14,26 +14,26 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SauravKanchan/svelte-chartjs.git"
+    "url": "git+https://github.com/TheBrenny/svelte-chartjs.git"
   },
   "bugs": {
-    "url": "https://github.com/SauravKanchan/svelte-chartjs"
+    "url": "https://github.com/TheBrenny/svelte-chartjs/issues"
   },
   "scripts": {
     "build": "del ./package && svelte-package && clear-package-json package/package.json -o package/package.json",
-    "prepublishOnly": "pnpm test && pnpm build",
+    "prepublishOnly": "npm run test && npm run build",
     "postpublish": "del ./package",
     "commit": "cz",
     "format": "prettier --write 'src/**/*.{js,ts,svelte}'",
     "test:lint": "eslint src --ext .js,.svelte",
     "test:size": "size-limit",
     "test:unit": "vitest run --coverage",
-    "test": "pnpm test:lint && pnpm test:unit",
+    "test": "npm run test:lint && npm run test:unit",
     "start:storybook": "start-storybook -p 6006 --ci",
     "build:storybook": "del ./storybook-static; NODE_ENV=production build-storybook",
     "bumpVersion": "standard-version",
     "createGithubRelease": "simple-github-release",
-    "release": "pnpm bumpVersion && git push origin master --tags && pnpm createGithubRelease",
+    "release": "npm run bumpVersion && git push origin master --tags && npm run createGithubRelease",
     "updateGitHooks": "simple-git-hooks"
   },
   "peerDependencies": {
@@ -56,7 +56,7 @@
     "@storybook/client-logger": "^6.5.13",
     "@storybook/svelte": "^6.5.14",
     "@sveltejs/package": "^1.0.1",
-    "@sveltejs/vite-plugin-svelte": "^2.0.2",
+    "@sveltejs/vite-plugin-svelte": "^2.4.1",
     "@testing-library/svelte": "^3.2.1",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
@@ -72,17 +72,17 @@
     "jsdom": "^21.0.0",
     "nano-staged": "^0.8.0",
     "prettier": "^2.7.1",
-    "prettier-plugin-svelte": "^2.7.0",
+    "prettier-plugin-svelte": "^2.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "simple-git-hooks": "^2.8.0",
     "simple-github-release": "^1.0.0",
     "size-limit": "^8.0.0",
     "standard-version": "^9.5.0",
-    "svelte": "^3.55.1",
-    "svelte-loader": "^3.1.5",
-    "svelte-preprocess": "^5.0.0",
-    "typescript": "^4.9.4",
+    "svelte": "^4.0.0",
+    "svelte-loader": "^3.1.8",
+    "svelte-preprocess": "^5.0.3",
+    "typescript": "^5.0.0",
     "vite": "^4.0.4",
     "vitest": "^0.27.0",
     "vitest-canvas-mock": "^0.2.2"
